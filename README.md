@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade Prática - Windows</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Source Sans 3', sans-serif; }
+    h1, h2, h3 { font-family: 'Merriweather', serif; }
+    .print-btn:hover { transform: translateY(-2px); }
+    .task-card { transition: all 0.3s ease; }
+    .task-card:hover { transform: translateX(4px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    @media print {
+      .no-print { display: none !important; }
+      .task-card { break-inside: avoid; }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ <script src="/_sdk/telemetry_sdk.js"></script></head>
+ <body class="h-full overflow-auto bg-slate-50">
+  <div class="w-full min-h-full">
+   <!-- Header -->
+   <header class="bg-indigo-900 text-white py-8 px-6">
+    <div class="max-w-4xl mx-auto">
+     <div class="flex items-center gap-3 mb-2 opacity-80 text-sm font-semibold uppercase tracking-wider">
+      <i data-lucide="monitor" class="w-4 h-4"></i> <span>CID - Centro de Inclusão Digital Araçariguama</span>
+     </div>
+     <h1 id="main-title" class="text-3xl md:text-4xl font-900 leading-tight mb-3">Atividade Prática — Funcionalidades do Windows</h1>
+     <div class="flex flex-wrap gap-4 text-indigo-200 text-sm mt-4">
+      <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4"></i> Duração: ~100 minutos</span> <span class="flex items-center gap-1"><i data-lucide="user" class="w-4 h-4"></i> Prof. Paulo Sergio</span> <span class="flex items-center gap-1"><i data-lucide="target" class="w-4 h-4"></i> Aprender praticando</span>
+     </div>
+    </div>
+   </header><!-- FORMULÁRIO DE NÍVEL DE CONHECIMENTO -->
+   <div class="no-print max-w-4xl mx-auto px-6 mt-6 mb-6">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg p-6 shadow-lg text-white">
+     <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><i data-lucide="activity" class="w-6 h-6"></i> Antes de começar...</h2>
+     <p class="text-sm mb-5 opacity-90">Qual é seu nível de conhecimento em informática?</p>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4"><label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg bg-white/20 hover:bg-white/30 transition-all"> <input type="radio" name="nivel" value="basico" onchange="updateNivel('basico')" class="w-4 h-4">
+       <div>
+        <p class="font-semibold text-sm">Básico</p>
+        <p class="text-xs opacity-80">Iniciante, pouca experiência</p>
+       </div></label> <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg bg-white/20 hover:bg-white/30 transition-all"> <input type="radio" name="nivel" value="intermediario" onchange="updateNivel('intermediario')" class="w-4 h-4">
+       <div>
+        <p class="font-semibold text-sm">Intermediário</p>
+        <p class="text-xs opacity-80">Conhecimento médio</p>
+       </div></label> <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg bg-white/20 hover:bg-white/30 transition-all"> <input type="radio" name="nivel" value="avancado" onchange="updateNivel('avancado')" class="w-4 h-4">
+       <div>
+        <p class="font-semibold text-sm">Avançado</p>
+        <p class="text-xs opacity-80">Experiente, expertise</p>
+       </div></label>
+     </div>
+     <div class="flex items-center gap-3 bg-white/20 rounded-lg p-3">
+      <div id="nivel-indicator" class="w-6 h-6 rounded-full bg-gray-300 shadow-md transition-all"></div>
+      <p id="nivel-texto" class="text-sm font-semibold">Selecione um nível...</p>
+     </div>
+    </div>
+   </div><!-- Print Button -->
+   <div class="no-print max-w-4xl mx-auto px-6 mt-4 flex justify-end">
+    <button onclick="window.print()" class="print-btn flex items-center gap-2 bg-indigo-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all hover:bg-indigo-800 shadow"> <i data-lucide="printer" class="w-4 h-4"></i> Imprimir Atividade </button>
+   </div><!-- Content -->
+   <main class="max-w-4xl mx-auto px-6 py-8 space-y-10">
+    <!-- Instruções -->
+    <section class="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
+     <h2 class="text-lg font-bold text-amber-900 mb-2 flex items-center gap-2"><i data-lucide="info" class="w-5 h-5"></i> Instruções Gerais</h2>
+     <ul class="text-amber-900 space-y-1 text-sm list-disc pl-5">
+      <li>Realize cada tarefa no seu computador, passo a passo.</li>
+      <li>Marque o checkbox ☐ ao concluir cada etapa.</li>
+      <li>Em caso de dúvida, levante a mão e peça ajuda ao instrutor.</li>
+      <li>Não pule etapas — cada uma prepara para a próxima.</li>
+     </ul>
+    </section><!-- BLOCO 1 -->
+    <section>
+     <div class="flex items-center gap-3 mb-4">
+      <span class="bg-indigo-700 text-white text-xs font-bold px-3 py-1 rounded-full">BLOCO 1</span>
+      <h2 class="text-xl font-bold text-slate-800">Área de Trabalho e Barra de Tarefas</h2><span class="text-xs text-slate-500 ml-auto">~15 min</span>
+     </div>
+     <div class="space-y-3">
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">1.1 — Personalizar o Papel de Parede</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Clique com o botão direito na Área de Trabalho.</li>
+        <li>Selecione <strong>"Personalizar"</strong>.</li>
+        <li>Escolha um novo plano de fundo (cor sólida ou imagem).</li>
+        <li>Volte e altere para uma <strong>cor sólida</strong> de sua preferência.</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">1.2 — Organizar Ícones</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Clique com o botão direito na Área de Trabalho → <strong>Exibir</strong>.</li>
+        <li>Altere o tamanho dos ícones para <strong>"Ícones grandes"</strong>.</li>
+        <li>Depois mude para <strong>"Ícones pequenos"</strong>.</li>
+        <li>Ative <strong>"Organizar ícones automaticamente"</strong> e veja o resultado.</li>
+        <li>Desative e arraste os ícones manualmente para posições diferentes.</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">1.3 — Barra de Tarefas</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Clique com o botão direito na Barra de Tarefas → <strong>Configurações da barra de tarefas</strong>.</li>
+        <li>Ative e desative a opção <strong>"Ocultar automaticamente a barra de tarefas"</strong>.</li>
+        <li>Fixe o aplicativo <strong>Calculadora</strong> na barra de tarefas (pesquise e clique com botão direito → "Fixar").</li>
+        <li>Remova um ícone fixado (botão direito → "Desafixar da barra de tarefas").</li>
+       </ol>
+      </div>
+     </div>
+    </section><!-- BLOCO 2 -->
+    <section>
+     <div class="flex items-center gap-3 mb-4">
+      <span class="bg-emerald-700 text-white text-xs font-bold px-3 py-1 rounded-full">BLOCO 2</span>
+      <h2 class="text-xl font-bold text-slate-800">Explorador de Arquivos</h2><span class="text-xs text-slate-500 ml-auto">~30 min</span>
+     </div>
+     <div class="space-y-3">
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">2.1 — Criar Estrutura de Pastas</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Abra o <strong>Explorador de Arquivos</strong> (tecla Windows + E).</li>
+        <li>Navegue até <strong>Documentos</strong>.</li>
+        <li>Crie uma pasta chamada <strong>"Aula_Windows"</strong>.</li>
+        <li>Dentro dela, crie 3 subpastas: <strong>"Textos"</strong>, <strong>"Imagens"</strong> e <strong>"Backup"</strong>.</li>
+        <li>Dentro de "Textos", crie mais uma pasta chamada <strong>"Rascunhos"</strong>.</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">2.2 — Criar e Manipular Arquivos</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Dentro da pasta "Textos", clique com botão direito → <strong>Novo → Documento de Texto</strong>.</li>
+        <li>Nomeie o arquivo como <strong>"meu_primeiro_arquivo.txt"</strong>.</li>
+        <li>Abra-o, digite seu nome completo e a data de hoje. Salve e feche.</li>
+        <li>Crie mais 2 arquivos de texto: <strong>"notas.txt"</strong> e <strong>"lembrete.txt"</strong>.</li>
+        <li><strong>Copie</strong> "notas.txt" para a pasta "Backup" (Ctrl+C → Ctrl+V).</li>
+        <li><strong>Mova</strong> "lembrete.txt" para a pasta "Rascunhos" (Ctrl+X → Ctrl+V).</li>
+        <li><strong>Renomeie</strong> "meu_primeiro_arquivo.txt" para "apresentacao.txt" (F2).</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">2.3 — Visualização e Busca</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Na pasta "Aula_Windows", alterne entre os modos de exibição: <strong>Lista</strong>, <strong>Detalhes</strong>, <strong>Ícones grandes</strong>.</li>
+        <li>No modo "Detalhes", clique em <strong>"Nome"</strong> para ordenar alfabeticamente.</li>
+        <li>Use a barra de busca (canto superior direito) e pesquise <strong>"notas"</strong>.</li>
+        <li>Observe que o arquivo aparece tanto em "Textos" quanto em "Backup".</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">2.4 — Lixeira</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Delete o arquivo "notas.txt" da pasta "Textos" (tecla Delete).</li>
+        <li>Abra a <strong>Lixeira</strong> na Área de Trabalho.</li>
+        <li>Encontre o arquivo e clique em <strong>"Restaurar"</strong>.</li>
+        <li>Verifique que ele voltou para a pasta original.</li>
+        <li>Delete novamente e agora use <strong>Shift + Delete</strong> — observe a mensagem de exclusão permanente.</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4 border-l-4 border-l-emerald-500">
+       <p class="font-semibold text-emerald-800 mb-2">2.5 — Criar Documentos Word e Excel</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Abra <strong>Microsoft Word</strong> (procure no Menu Iniciar).</li>
+        <li>Digite: <strong>"Relatório da Aula de Windows"</strong> como título.</li>
+        <li>Abaixo, escreva um parágrafo sobre o que aprendeu na aula (mínimo 5 linhas).</li>
+        <li>Salve como <strong>"relatorio_aula.docx"</strong> na pasta <strong>"Textos"</strong>.</li>
+        <li>Abra <strong>Microsoft Excel</strong>.</li>
+        <li>Crie uma pequena tabela com 3 colunas: <strong>Atalho | Função | Testei</strong></li>
+        <li>Preencha com 5 atalhos que você praticou (ex: Win+E, Alt+Tab, etc).</li>
+        <li>Salve como <strong>"atalhos_windows.xlsx"</strong> na pasta <strong>"Textos"</strong>.</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4 border-l-4 border-l-emerald-500">
+       <p class="font-semibold text-emerald-800 mb-2">2.6 — Tirar Foto com Câmera (ou Usar Imagem Existente)</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Se tiver câmera, abra o aplicativo <strong>Câmera</strong> (Menu Iniciar).</li>
+        <li>Tire uma foto de sua mesa ou local de trabalho.</li>
+        <li>Salve como <strong>"foto_workspace.jpg"</strong> na pasta <strong>"Imagens"</strong>.</li>
+        <li><strong>OU:</strong> Procure uma imagem no computador (Windows Spotlight, papel de parede, etc) e copie para <strong>"Imagens"</strong>.</li>
+        <li>Renomeie a imagem para <strong>"minha_imagem.jpg"</strong>.</li>
+       </ol>
+      </div>
+     </div>
+    </section><!-- BLOCO 3 -->
+    <section>
+     <div class="flex items-center gap-3 mb-4">
+      <span class="bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">BLOCO 3</span>
+      <h2 class="text-xl font-bold text-slate-800">Gerenciamento de Janelas e Multitarefa</h2><span class="text-xs text-slate-500 ml-auto">~15 min</span>
+     </div>
+     <div class="space-y-3">
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">3.1 — Snap e Redimensionamento</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Abra 3 aplicativos: <strong>Bloco de Notas</strong>, <strong>Calculadora</strong> e <strong>Explorador de Arquivos</strong>.</li>
+        <li>Use <strong>Windows + Seta Esquerda</strong> para encaixar o Bloco de Notas na metade esquerda.</li>
+        <li>Use <strong>Windows + Seta Direita</strong> para encaixar o Explorador na metade direita.</li>
+        <li>Arraste a barra divisória entre eles para redimensionar.</li>
+        <li>Use <strong>Windows + Seta Cima</strong> para maximizar o Bloco de Notas.</li>
+        <li>Use <strong>Windows + Seta Baixo</strong> para restaurar e depois minimizar.</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">3.2 — Alt+Tab e Área de Trabalho Virtual</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Com os 3 apps abertos, pressione <strong>Alt + Tab</strong> e alterne entre eles.</li>
+        <li>Pressione <strong>Windows + Tab</strong> para ver a Visão de Tarefas.</li>
+        <li>Clique em <strong>"Nova área de trabalho"</strong> (canto superior).</li>
+        <li>Na nova área de trabalho, abra o <strong>Paint</strong>.</li>
+        <li>Alterne entre as áreas de trabalho com <strong>Ctrl + Windows + Seta Esquerda/Direita</strong>.</li>
+        <li>Feche a área de trabalho extra (Windows + Tab → X na área de trabalho).</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">3.3 — Atalhos Essenciais</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Pressione <strong>Windows + D</strong> para mostrar a área de trabalho (minimiza tudo).</li>
+        <li>Pressione novamente para restaurar.</li>
+        <li>Pressione <strong>Windows + L</strong> para bloquear a tela (faça login novamente).</li>
+        <li>Pressione <strong>Ctrl + Shift + Esc</strong> para abrir o Gerenciador de Tarefas.</li>
+        <li>Observe os processos em execução e feche o Gerenciador.</li>
+       </ol>
+      </div>
+     </div>
+    </section><!-- BLOCO 4 -->
+    <section>
+     <div class="flex items-center gap-3 mb-4">
+      <span class="bg-rose-600 text-white text-xs font-bold px-3 py-1 rounded-full">BLOCO 4</span>
+      <h2 class="text-xl font-bold text-slate-800">Configurações do Sistema</h2><span class="text-xs text-slate-500 ml-auto">~15 min</span>
+     </div>
+     <div class="space-y-3">
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">4.1 — Tela e Acessibilidade</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Abra <strong>Configurações</strong> (Windows + I).</li>
+        <li>Vá em <strong>Sistema → Tela</strong>.</li>
+        <li>Observe a resolução atual. Altere a <strong>escala</strong> para 125% e veja o efeito.</li>
+        <li>Volte para 100%.</li>
+        <li>Vá em <strong>Acessibilidade → Tamanho do texto</strong> e aumente a barra. Aplique e observe.</li>
+        <li>Restaure o tamanho original.</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">4.2 — Data, Hora e Idioma</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Vá em <strong>Hora e idioma → Data e hora</strong>.</li>
+        <li>Desative "Definir hora automaticamente" e altere a hora manualmente.</li>
+        <li>Reative "Definir hora automaticamente".</li>
+        <li>Vá em <strong>Idioma e região</strong> e observe os idiomas instalados.</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">4.3 — Aplicativos Padrão e Inicialização</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Vá em <strong>Aplicativos → Aplicativos padrão</strong>.</li>
+        <li>Veja qual é o navegador padrão atual.</li>
+        <li>Vá em <strong>Aplicativos → Inicialização</strong>.</li>
+        <li>Observe quais programas iniciam com o Windows e o impacto de cada um.</li>
+       </ol>
+      </div>
+     </div>
+    </section><!-- BLOCO 5 -->
+    <section>
+     <div class="flex items-center gap-3 mb-4">
+      <span class="bg-violet-700 text-white text-xs font-bold px-3 py-1 rounded-full">BLOCO 5</span>
+      <h2 class="text-xl font-bold text-slate-800">Ferramentas Integradas e Captura</h2><span class="text-xs text-slate-500 ml-auto">~15 min</span>
+     </div>
+     <div class="space-y-3">
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">5.1 — Captura de Tela</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Pressione <strong>Print Screen</strong> — abra o Paint e cole (Ctrl+V). Salve na pasta "Imagens".</li>
+        <li>Pressione <strong>Alt + Print Screen</strong> para capturar apenas a janela ativa. Cole no Paint.</li>
+        <li>Pressione <strong>Windows + Shift + S</strong> para abrir a Ferramenta de Captura.</li>
+        <li>Faça uma captura retangular de uma parte da tela.</li>
+        <li>Faça uma captura em formato livre (desenho à mão).</li>
+        <li>Salve ambas na pasta "Imagens".</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">5.2 — Calculadora e Bloco de Notas</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Abra a <strong>Calculadora</strong> e mude para modo <strong>Científica</strong>.</li>
+        <li>Calcule: 25² (625), √144 (12) e 15% de 480 (72).</li>
+        <li>Mude para modo <strong>Conversor</strong> e converta 5 km para milhas.</li>
+        <li>Abra o <strong>Bloco de Notas</strong> e anote os resultados.</li>
+        <li>No Bloco de Notas, use <strong>Ctrl+H</strong> (Substituir) para trocar "km" por "quilômetros".</li>
+        <li>Salve como "calculos.txt" na pasta "Textos".</li>
+       </ol>
+      </div>
+      <div class="task-card bg-white border border-slate-200 rounded-lg p-4">
+       <p class="font-semibold text-slate-800 mb-2">5.3 — Paint</p>
+       <ol class="text-sm text-slate-600 list-decimal pl-5 space-y-1">
+        <li>Abra o <strong>Paint</strong>.</li>
+        <li>Desenhe um retângulo colorido com a ferramenta de formas.</li>
+        <li>Adicione texto dentro do retângulo com seu nome.</li>
+        <li>Use a f
